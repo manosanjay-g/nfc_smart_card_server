@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const { getUpcomingAppointments, getRecentVisits, getDoctorUpcomingAppointments } = require('../controllers/userController.js');
+const { getUpcomingAppointments, getRecentVisits, getDoctorUpcomingAppointments, getUserInfo } = require('../controllers/userController.js');
 
 router.get("/patient/appointments", getUpcomingAppointments)
 router.get("/doctor/appointments", getDoctorUpcomingAppointments)
