@@ -1,4 +1,5 @@
 const appointmentModel = require("../models/appointmentModel")
+const userModel = require('../models/userModel')
 //Patient related functions
 
 const getUpcomingAppointments = async (req, res) => {
