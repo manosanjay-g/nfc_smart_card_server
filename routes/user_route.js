@@ -5,6 +5,6 @@ const { getUpcomingAppointments, getRecentVisits, getDoctorUpcomingAppointments 
 router.get("/patient/appointments", getUpcomingAppointments)
 router.get("/doctor/appointments", getDoctorUpcomingAppointments)
 router.get("/patient/recentvisits", getRecentVisits)
-router.get("/:id", getRecentVisits)
+router.get("/:id", getUserInfo)
 
 module.exports = router
