@@ -15,13 +15,13 @@ const getUpcomingAppointments = async (req, res) => {
 
 const getUserInfo = async (req, res) => {
     try {
-        const uid = req.params.id;
-        if (!uid) {
+        const username = req.params.id;
+        if (!username) {
             res.status(400).json({
-                error: "uid is required to find the user"
+                error: "Username is required to find the user"
             })
         }
-        const user = await userModel.findOne({ uid });
+        const user = await userModel.findOne({ username });
         if (user == null) {
             return res.status(400).json({
                 error: "User does not exist"
