@@ -12,6 +12,31 @@ const getUpcomingAppointments = async (req, res) => {
         console.log(err);
     }
 }
+
+const getUserInfo = async (req, res) => {
+    try {
+        const uid = req.params.id;
+        if (!uid) {
+            res.status(400).json({
+                error: "uid is required to find the user"
+            })
+        }
+        const user = await userModel.findOne({ uid });
+        if (user == null) {
+            return res.status(400).json({
+                error: "User does not exist"
+            })
+        } else {
+            return res.status(200).json({
+                user
+            })
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
 const getRecentVisits = async (req, res) => {
     try {
         const { patient_id } = req.body
@@ -38,5 +63,6 @@ const getDoctorUpcomingAppointments = async (req, res) => {
 module.exports = {
     getRecentVisits,
     getUpcomingAppointments,
-    getDoctorUpcomingAppointments
+    getDoctorUpcomingAppointments,
+    getUserInfo
 }
